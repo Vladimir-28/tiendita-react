@@ -3,24 +3,27 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import PublicRouter from './modules/router/PublicRouter';
 import AuthRouter from './modules/router/AuthRouter';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 function App() {
   const [session, setSession] = useState(false);
+  const navigation = useNavigate();
   
   useEffect(() => {
-      if(!!sessionStorage.getItem('TOKEN')) {
-        //Navigate hacia Auth
+      if(!session && !!sessionStorage.getItem('token')) {
+        setSession(true);
+        navigation("/");
       }
   }, [session]);
 
   return (<>
     {session ? (
-      <AuthRouter/>
+      <AuthRouter setSession={setSession}/>
     ) : (
-      <PublicRouter/>
+      <PublicRouter setSession={setSession}/>
     )}
   </>
   );

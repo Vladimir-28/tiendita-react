@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Login(){
+export default function Login({setSession}){
+    const navigate = useNavigate();
+
+    const changeSession = () => {
+        sessionStorage.setItem("token", "test.token.tiendita");
+        setSession(true);
+        navigate("/home");
+    }
+
+    useEffect(() => {
+        if(!!sessionStorage.getItem("token")){
+            navigate("/home")
+        }
+    }, [])
+
     return( <main className="d-flex align-items-center justify-content-center">
         <div className="card border-0 rounded4 shadow" style={{width: 400}}>
             <div className="card-body">
@@ -15,11 +30,11 @@ export default function Login(){
                         <input type="password" name="" id="" className="form-control" />
                     </div>
                     <div className="col-12 text-center">
-                        <button className="btn btn-primary col-12">Iniciar sesión</button>
+                        <button onClick={() => changeSession()} className="btn btn-primary col-12">Iniciar sesión</button>
                         <p className="my-3">Ó</p>
                         <Link className="btn btn-outline-primary col-12" to="/register">Registrarme</Link>
                         <p className="mb-0 mt-3">
-                            <a href="">¿Olvidaste tu Contraseña?</a>
+                            <Link to="/recovery"> ¿Olvidaste tu Contraseña?</Link>
                         </p>
                     </div>
                 </form>
