@@ -10,7 +10,7 @@ export default function PublicRouter () {
         <Route path="/" element={ <Navigate to="/login" />} />
         <Route path="/login" element={ <Login/>} />
         <Route path="/register" element={<Register/>}/>
-        <Route path="/passwordrecovery" element= {<PasswordRecovery/>}/>
+        <Route path="/recovery" element= {<PasswordRecovery/>}/>
     </Routes>
     </>);
 }
