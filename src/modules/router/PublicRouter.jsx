@@ -3,6 +3,7 @@ import Login from "../public/Login";
 import Register from "../public/Register";
 import PasswordRecovery from "../public/PasswordRecovery";
 import Error404 from "../error/Error404";
+import Error401 from "../error/Error401";
 
 export default function PublicRouter ({setSession}) {
 
@@ -16,6 +17,7 @@ export default function PublicRouter ({setSession}) {
 
         {/* Fallback */}
         <Route path="*" element={<Error404/>} />
+        <Route path="/auth/*" element={ <Error401/>} />
     </Routes>
     </>);
 }

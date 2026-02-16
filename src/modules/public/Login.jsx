@@ -7,12 +7,12 @@ export default function Login({setSession}){
     const changeSession = () => {
         sessionStorage.setItem("token", "test.token.tiendita");
         setSession(true);
-        navigate("/home");
+        navigate("/auth/home");
     }
 
     useEffect(() => {
         if(!!sessionStorage.getItem("token")){
-            navigate("/home")
+            navigate("/auth/home")
         }
     }, [])
 

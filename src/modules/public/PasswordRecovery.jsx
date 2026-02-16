@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function PasswordRecovery(){
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(!!sessionStorage.getItem("token")){
+            navigate("/auth/home")
+        }
+    }, [])
+
     return(<main className="d-flex align-items-center justify-content-center">
     <div className="card border-0 rounded4 shadow" style={{ width: 400 }}>
         <div className="card-body">
