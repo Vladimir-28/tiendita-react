@@ -5,12 +5,12 @@ import Error401 from "../error/Error401";
 import CustomSidebar from "../auth/components/CustomSidebar";
 import Products from "../auth/products/Products";
 
-export default function AuthRouter() {
+export default function AuthRouter({setSession}) {
 
     return (
         <main className="row m-0">
-            <CustomSidebar />
-            <div className="col-10 p-4">
+            <CustomSidebar setSession={setSession}/>
+            <div className="col-10">
                 <Routes>
                     <Route path="/" element={<Navigate to="/auth/home" />} />
                     <Route path="/auth/home" element={<Home />} />

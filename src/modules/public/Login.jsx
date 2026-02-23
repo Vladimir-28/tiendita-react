@@ -12,7 +12,7 @@ export default function Login({setSession}){
 
     useEffect(() => {
         if(!!sessionStorage.getItem("token")){
-            navigate("/auth/home")
+            navigate("/")
         }
     }, [])
 
