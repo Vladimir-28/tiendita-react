@@ -1,3 +1,4 @@
+import CreateProductModal from "./components/CreateProductModal";
 import ProductRow from "./components/ProductRow";
 
 export default function Products() {
@@ -10,7 +11,7 @@ export default function Products() {
                     <span className="input-group-text"> <i className="bi bi-search"></i></span>
                     <input className="form-control" placeholder="Buscar..." type="search" name="" id="" />
                 </div>
-                <button className="btn btn-outline-success">
+                <button className="btn btn-outline-success" data-bs-toggle = "modal" data-bs-target="#createProductModal">
                     <i className="bi bi-plus-lg me-1"></i>
                     Agregar producto
                 </button>
@@ -24,7 +25,7 @@ export default function Products() {
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Marca</th>
-                                <th scope="col">Costo unitario</th>
+                                <th scope="col">C. Unitario</th>
                                 <th scope="col">A la venta</th>
                                 <th scope="col" className="text-center">Acciones</th>
                             </tr>
@@ -35,6 +36,9 @@ export default function Products() {
                     </table>
                 </div>
             </section>
+
+            {/* Modales */}
+            <CreateProductModal />
         </div>
     );
 }
